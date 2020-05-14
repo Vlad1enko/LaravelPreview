@@ -6,9 +6,9 @@
         <title>@yield('title')</title>
     </head>
     <body>
-        <h1>Universities:</h1>
-        @foreach ($universities as $university)
-            <a href="studentlist/{{$university->id}}">{{$university->id}}. {{$university->name}}</a><br>
+        <h1>Subjects:</h1>
+        @foreach ($students[$studId-1]->subjects as $subject)
+            <a href="../studentlist/{{$subject->id}}?subject=true">{{$subject->id}}.{{$subject->name}}</a><br>
         @endforeach
     </body>
 </html>

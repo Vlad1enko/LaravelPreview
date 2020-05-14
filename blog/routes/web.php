@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('studentlist/{id}', 'StudentController@index');
+Route::get('subjectlist/{id}', 'SubjectController@index');
 
-Route::get('hi/{id}', 'HomeController@sayHi');
+// Route::get('hi/{id}', 'HomeController@sayHi');
 
-Route::post('/create', 'MessageController@create');
+// Route::post('/create', 'MessageController@create');
 
-Route::get('/about/{param?}', function () {
-    return view('welcome');
-});
+// Route::get('/about/{param?}', function () {
+//     return view('welcome');
+// });
 
-Route::get('/page', function () {
-    return view('welcome');
-});
+// Route::get('/page', function () {
+//     return view('welcome');
+// });

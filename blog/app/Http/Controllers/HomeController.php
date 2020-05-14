@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Message;
+use App\university;
 
 class HomeController extends Controller
 {
     public function index() {
-        $messages = Message::all();
-        return view('messages', ['messages' => $messages, 'someString' => 'Some String that exists']);
+        $university = university::all();
+        return view('welcome', ['universities' => $university]);
     }
-    public function sayHi(Request $request, $id) {
-        return view('greeting', ['name' => $request->input('name'), 'id' => $id]);
+    public function create() {
+        return view('welcome', ['university' => [] ]);
+    }
+    public function store(Request $request) {
+        $university = university::create($request->all());
+        return redirect()->route('welcome',$university);
+    }
+    public function show(university $university) {
+        return view('welcome', ['university' => $university]);
     }
  }
